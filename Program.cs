@@ -1,11 +1,12 @@
-using Shop.Domain.Handlers;
+using System.Reflection;
+using MediatR;
 
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 
 builder.Services.AddControllers();
-builder.Services.AddTransient<ICreateCustomerHandler, CreateCustomerHandler>();
+builder.Services.AddMediatR(Assembly.GetExecutingAssembly());
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
